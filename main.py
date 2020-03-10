@@ -6,6 +6,7 @@ import encoder
  
  
 class mywindow(QtWidgets.QMainWindow):
+
     def __init__(self):
         super(mywindow, self).__init__()
         self.ui = Ui_MainWindow()
@@ -22,8 +23,7 @@ class mywindow(QtWidgets.QMainWindow):
         w.clicked.connect(self.button_clicked)
         
     
-    def button_clicked(self):
-        print('Кнопка нажата')
+    
 
     def button_open_file(self):
         w = QFileDialog.getOpenFileName(self, 'Open file')[0]
@@ -31,18 +31,19 @@ class mywindow(QtWidgets.QMainWindow):
         e = self.ui.label_8
         e.setText(w)
 
-
-
-
         f = open(w, 'r')
         with f:
+            global data
             data = f.read()
-            print(data)
+            
+        #qwe = encoder.coder.compress(data)
+        
+        print(data)
+
+    def button_clicked(self):
 
         qwe = encoder.coder.compress(data)
-        print(qwe)
-
-        
+        print(qwe)    
  
 app = QtWidgets.QApplication([])
 application = mywindow()
