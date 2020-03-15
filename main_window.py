@@ -119,11 +119,6 @@ class Ui_MainWindow(object):
 "font-family: Сomic Sans MS;")
         self.label_7.setTextFormat(QtCore.Qt.PlainText)
         self.label_7.setObjectName("label_7")
-        self.open_file = QtWidgets.QPushButton(self.centralwidget)
-        self.open_file.setGeometry(QtCore.QRect(70, 270, 180, 40))
-        self.open_file.setStyleSheet("font-size: 24px;\n"
-"font-family: Сomic Sans MS ;")
-        self.open_file.setObjectName("open_file")
         self.label_8 = QtWidgets.QLabel(self.centralwidget)
         self.label_8.setGeometry(QtCore.QRect(40, 330, 240, 30))
         self.label_8.setStyleSheet("font-size:12px;\n"
@@ -143,4 +138,3 @@ class Ui_MainWindow(object):
         self.label_5.setText(_translate("MainWindow", "Настройки"))
         self.label_6.setText(_translate("MainWindow", "О программе"))
         self.label_7.setText(_translate("MainWindow", "Начнем?"))
-        self.open_file.setText(_translate("MainWindow", "Открыть файл"))
