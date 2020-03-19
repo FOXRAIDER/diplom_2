@@ -47,44 +47,38 @@ class mywindow(QtWidgets.QMainWindow):
                 case.append(int(i))
             print(case)
         
-
-
-
-        # output = []
-        # with open(w, 'rb') as f:
-        #     data = f.read()
-        #     while i <= len(case)-1:
-        #         if i == 1:
-        #             print('True')
-        #         elif i == 2:
-        #             print('False')
-
-                    
-
-        # case_b = []
-        # k,i = 0,0
-        # with open(w, 'rb') as f:
-        #     while i <= len(case)-1:
-        #         data = f.read()
-        #         if case[i] == 1:
-        #            case_b.append(data[i:i+1]) 
-        #            i+=1
-        #         elif case[i] == 2:
-        #             if k < i:
-        #                 k = i
-        #                 case_b.append(data[k:k+2])
-        #                 i+=1
-        #                 k+=2
-        #             elif k>=i:
-        #                 case_b.append(data[k:k+2])
-        #                 i+=1
-        #                 k+=2
-        #         else:
-        #             pass
+        with open(w, 'rb') as f:
+            data = f.read()
         
-        # print(case_b)
+        iterator_i = 0
+        iterator_k = 0
+        definaly_text = []
+        finaly_text = []
+        print(data)
         
+       
+
+        while iterator_i <= len(case)-1:
+            if case[iterator_i] == 1:
+                
+                definaly_text.append(unpack('B', data[iterator_k:iterator_k+1]))
+                iterator_i+=1
+                iterator_k+=1
+            elif case[iterator_i] == 2:
+                
+                definaly_text.append(unpack('H', data[iterator_k:iterator_k+2]))
+                iterator_i+=1
+                iterator_k+=2
+            
+        for i in definaly_text:
+            finaly_text.append(int(i[0]))
         
+
+        with open('compressing.txt', 'w') as f:
+            _data = decoder.decompress.decompress(finaly_text)
+            f.write(_data)
+
+       
 
 
         
